@@ -9,6 +9,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - run: echo ${{ secrets.GHCR_PAT}}
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
