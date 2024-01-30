@@ -20,3 +20,4 @@ jobs:
           build-args: GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
           tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:1.0.1
+
