@@ -12,9 +12,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: ./docker
-          dockerfile: base.Dockerfile
+          context: .
+          dockerfile: docker/base.Dockerfile
           build-args: |
-            GHCR_PAT=${{ github.actor }}
+            GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
-          tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:${{ github.sha }}
+          tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:1.0.1
