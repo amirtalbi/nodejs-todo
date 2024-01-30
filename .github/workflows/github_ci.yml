@@ -12,8 +12,6 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in docker directory
-        run: ls -l ./docker
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
@@ -22,7 +20,3 @@ jobs:
           build-args: GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
           tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:1.0.1
-      - name: Print current directory contents
-        run: ls -l
-      - name: Print Docker directory contents
-        run: ls -l ./docker
