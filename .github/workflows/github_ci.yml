@@ -1,6 +1,9 @@
-name: GitHub Actions 
-run-name: ${{ github.actor }} is checking out update and deploying image 🚀
-on: [push]
+name: GitHub Actions
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -15,8 +18,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          dockerfile: ./docker/base.Dockerfile
-          build-args: |
-            GHCR_PAT=${{ secrets.GHCR_PAT }}
+          dockerfile: ./docker/base.Dockerfile  # Mettez à jour le chemin du Dockerfile
+          build-args: GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
           tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:1.0.1
+      - name: Print current directory contents
+        run: ls -l
+      - name: Print Docker directory contents
+        run: ls -l ./docker
