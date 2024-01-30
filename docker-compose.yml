@@ -5,7 +5,7 @@ services:
     image: nodejs-todo/base
     build: 
       context: .
-      dockerfile: docker/base.Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - .:/app
     ports:
