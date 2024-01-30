@@ -1,0 +1,17 @@
+name: GitHub Actions 
+run-name: ${{ github.actor }} is checking out update and deploying image 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.actor }}/nodejs-todo/base:${{ github.sha }}
