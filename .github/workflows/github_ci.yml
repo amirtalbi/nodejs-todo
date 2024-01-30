@@ -15,7 +15,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          dockerfile: docker/base.Dockerfile
+          dockerfile: ../../docker/base.Dockerfile
           build-args: |
             GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
