@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    image: nodejs-todo/base
+    image: nodejs-todo
     build: 
       context: .
       dockerfile: Dockerfile
