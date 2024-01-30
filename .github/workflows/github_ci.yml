@@ -10,12 +10,12 @@ jobs:
         uses: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in docker directory
-        run: ls -l ./
+        run: ls -l ./docker
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
-          dockerfile: ../../docker/base.Dockerfile
+          dockerfile: ./docker/base.Dockerfile
           build-args: |
             GHCR_PAT=${{ secrets.GHCR_PAT }}
           push: true
